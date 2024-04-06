@@ -17,6 +17,7 @@ public class Timer : MonoBehaviour
         _delay = 0.5f;
         _step = 1;
         _text.text = _currentCount.ToString("");
+        _wait = new WaitForSeconds(_delay);
     }
 
     private void Update()
@@ -26,12 +27,10 @@ public class Timer : MonoBehaviour
             if (_isActive)
             {
                 _isActive = false;
-                StartCoroutine(IncreaseTime(_step));
             }
             else
             {
                 _isActive = true;
-                _wait = new WaitForSeconds(_delay);
                 StartCoroutine(IncreaseTime(_step));
             }
         }
